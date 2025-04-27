@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import {
-  ArrowRight,
+  // ArrowRight,
   Github,
   Linkedin,
   Mail,
@@ -103,79 +103,74 @@ export default function Home() {
 
   const skills = [
     {
-      category: 'Frontend',
-      items: [
-        'HTML',
-        'CSS',
-        'JavaScript',
-        'TypeScript',
-        'React',
-        'Next.js',
-        'Tailwind CSS',
-        'SASS',
-      ],
+      category: 'Languages',
+      items: ['TypeScript', 'JavaScript', 'Node.js'],
     },
     {
-      category: 'Backend',
-      items: ['Node.js', 'Express', 'Python', 'Django', 'GraphQL', 'REST API'],
+      category: 'Frontend Frameworks',
+      items: ['React 18', 'Next.js', 'Redux', 'Zustand'],
     },
     {
-      category: 'Database',
-      items: [
-        'MongoDB',
-        'PostgreSQL',
-        'MySQL',
-        'Firebase',
-        'Redis',
-        'Supabase',
-      ],
+      category: 'Backend Technologies',
+      items: ['Express.js', 'GraphQL', 'REST APIs', 'Strapi'],
     },
     {
       category: 'Tools',
-      items: [
-        'Git',
-        'GitHub',
-        'Docker',
-        'AWS',
-        'Vercel',
-        'Netlify',
-        'Figma',
-        'Adobe XD',
-      ],
+      items: ['Turborepo', 'Vite', 'Webpack', 'Monorepo Architectures'],
+    },
+    {
+      category: 'State Management',
+      items: ['Redux Toolkit', 'Zustand', 'React Context'],
+    },
+    {
+      category: 'Testing',
+      items: ['Jest', 'React Testing Library'],
+    },
+    {
+      category: 'Cloud & Infrastructure',
+      items: ['AWS', 'Docker', 'Serverless', 'CI/CD Pipelines'],
     },
   ];
 
   const experiences = [
     {
-      company: 'Hcode Technologic ( Paytunes )',
-      position: 'Senior Frontend Developer',
-      period: '2024 - Present',
+      company: 'Hcode Technologies',
+      position: 'Software Development Engineer (SDE-2)',
+      period: 'Feb 2024 - Present',
       description:
-        'Lead the frontend development team in building responsive and accessible web applications. Implemented modern frontend practices and improved performance metrics by 40%.',
+        'Build a platform that connects freelancers with clients, essentially acting as a digital marketplace for freelance work. Implement backend microservices using Redis, Kafka, and Zookeeper to handle messages and live chat with clients and members. Implement backend using Express.js and TypeScript, developing scalable APIs and data processing pipelines with PostgreSQL. Collaborated across full-stack teams to design and implement integrated solutions, bridging frontend and backend development.',
       technologies: [
-        'React',
+        'Redis',
+        'Kafka',
+        'Zookeeper',
+        'Express.js',
         'TypeScript',
-        'Next.js',
-        'GraphQL',
-        'Tailwind CSS',
         'PostgreSQL',
       ],
     },
     {
-      company: 'Technogetic Pvt. Ltd.',
-      position: 'Full Stack Developer',
+      company: 'PayTunes Digital Audio Advertising',
+      position: 'React Manager | Frontend Engineer',
       period: '2023 - 2024',
       description:
-        'Developed and maintained full-stack applications for clients across various industries. Collaborated with design and product teams to deliver high-quality software solutions.',
-      technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'React'],
+        'Build a platform where users can easily build an ad using AI-generated ads. Implement backend APIs for scripting and generating better audio, banner, and video advertisements. ShoutL makes the generation of advertisements very fast and easy for anyone without any deep knowledge of audio editor and banner designer just simple prompt make a creative advertisements in few minutes.',
+      technologies: ['React', 'AI', 'APIs'],
     },
     {
-      company: 'Indipient info',
-      position: 'Web Developer ( React Developer )',
-      period: '2021 - 2023',
+      company: 'Technogetic Pvt Ltd',
+      position: 'Software Engineer',
+      period: 'Jan 2023 - Feb 2024',
       description:
-        'Created responsive websites and implemented UI designs. Worked on optimizing website performance and ensuring cross-browser compatibility.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'WordPress', 'PHP'],
+        'Collaborated with the PyThru Banking team to develop and implement a core payment gateway module, enabling businesses of all types to seamlessly accept payments and process payouts through a unified platform. Contributed to the development of an internal frontend component library at Wayfair, focusing on a component-based architecture to promote reusability and consistency across applications.',
+      technologies: ['PyThru', 'Banking', 'Frontend Component Library'],
+    },
+    {
+      company: 'Incipient Infotech',
+      position: 'Frontend Engineer',
+      period: 'Oct 2021 - Dec 2022',
+      description:
+        'Developed and delivered numerous responsive React applications, consistently ensuring high-quality and user-friendly interfaces for diverse client needs. Engineered a responsive event and booking platform with React, implementing features such as real-time availability display, secure booking flows, and user dashboards.',
+      technologies: ['React', 'Event Booking', 'User Dashboards'],
     },
   ];
 
@@ -192,11 +187,13 @@ export default function Home() {
                 Full Stack Developer
               </h2>
               <p className='text-muted-foreground mb-8 text-lg'>
-                I build accessible, responsive, and high-performance web
-                applications using modern technologies. With 5 years of
-                experience as a MERN stack developer, I specialize in crafting
-                scalable solutions with React, Node.js, Express, and MongoDB to
-                deliver seamless user experiences.
+                Versatile Software Engineer with 5 years of experience in
+                frontend development and backend contributions. Specialized in
+                building scalable, high-performance web applications using
+                modern JavaScript technologies, with expertise in monorepo
+                architectures, microservices, and full-stack development. Proven
+                leadership in managing teams and delivering impactful community
+                platforms.
               </p>
               <div className='flex flex-wrap gap-4'>
                 <Button size='lg' asChild>
@@ -285,9 +282,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className='font-medium mb-1'>Location:</h3>
-                  <p className='text-muted-foreground'>
-                    Delhi, India
-                  </p>
+                  <p className='text-muted-foreground'>Delhi, India</p>
                 </div>
                 <div>
                   <h3 className='font-medium mb-1'>Availability:</h3>
@@ -470,9 +465,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className='font-medium mb-1'>Location</h3>
-                  <p className='text-muted-foreground'>
-                    Delhi, India
-                  </p>
+                  <p className='text-muted-foreground'>Delhi, India</p>
                 </div>
               </div>
               <div className='flex items-start gap-4'>
@@ -589,8 +582,10 @@ export default function Home() {
                       placeholder='Subject'
                       {...register('subject', {
                         required: 'Subject is required',
-                        minLength: { value: 5, message: 'Subject must be at least 5 characters long' },
- 
+                        minLength: {
+                          value: 5,
+                          message: 'Subject must be at least 5 characters long',
+                        },
                       })}
                     />
                     {errors.subject && (
@@ -610,7 +605,11 @@ export default function Home() {
                       placeholder='Your message'
                       {...register('message', {
                         required: 'Message is required',
-                        minLength: { value: 10, message: 'Message must be at least 10 characters long' },
+                        minLength: {
+                          value: 10,
+                          message:
+                            'Message must be at least 10 characters long',
+                        },
                       })}
                     ></textarea>
                     {errors.message && (
