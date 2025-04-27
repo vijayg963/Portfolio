@@ -15,7 +15,7 @@ if (!MONGODB_URI) {
     'Please define the MONGODB_URI environment variable in your .env file'
   );
 }
-console.log('MONGODB_URI', MONGODB_URI);
+
 interface MongooseCache {
   conn: typeof mongoose | null;
   promise: Promise<typeof mongoose> | null;
