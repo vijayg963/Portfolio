@@ -5,7 +5,7 @@ import {
   Github,
   Linkedin,
   Mail,
-  ExternalLink,
+  // ExternalLink,
   Download,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -20,8 +20,7 @@ import {
 } from '@/lib/constant';
 import profileImg from '../app/assests/WhatsApp.jpeg';
 import { useForm } from 'react-hook-form';
-// Paste the Web App URL
-const googleSheetUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL as string;
+import { downloadResume } from '../lib/utils';
 
 export default function Home() {
   const {
@@ -41,9 +40,8 @@ export default function Home() {
     message: string;
   }) => {
     try {
-      const response = await fetch(googleSheetUrl, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
@@ -51,7 +49,8 @@ export default function Home() {
       if (response.ok) {
         alert('Form submitted successfully!');
       } else {
-        alert('Submission failed. Please try again.');
+        const errorData = await response.json();
+        alert(`Submission failed: ${errorData.error}`);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -59,48 +58,48 @@ export default function Home() {
     }
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-commerce Platform',
-      description:
-        'A full-featured e-commerce platform built with Next.js, featuring product listings, cart functionality, and secure checkout.',
-      image: '',
-      tags: ['Next.js', 'React', 'Tailwind CSS', 'Stripe'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description:
-        'A productivity application for managing tasks and projects with team collaboration features.',
-      image: '',
-      tags: ['React', 'TypeScript', 'Firebase', 'Redux'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 3,
-      title: 'Portfolio Website',
-      description:
-        'A responsive portfolio website template for developers and designers to showcase their work.',
-      image: '',
-      tags: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
-      link: '#',
-      github: '#',
-    },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      description:
-        'A weather application that displays current conditions and forecasts based on user location.',
-      image: '',
-      tags: ['React', 'API Integration', 'Geolocation', 'Chart.js'],
-      link: '#',
-      github: '#',
-    },
-  ];
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: 'E-commerce Platform',
+  //     description:
+  //       'A full-featured e-commerce platform built with Next.js, featuring product listings, cart functionality, and secure checkout.',
+  //     image: '',
+  //     tags: ['Next.js', 'React', 'Tailwind CSS', 'Stripe'],
+  //     link: '#',
+  //     github: '#',
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Task Management App',
+  //     description:
+  //       'A productivity application for managing tasks and projects with team collaboration features.',
+  //     image: '',
+  //     tags: ['React', 'TypeScript', 'Firebase', 'Redux'],
+  //     link: '#',
+  //     github: '#',
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Portfolio Website',
+  //     description:
+  //       'A responsive portfolio website template for developers and designers to showcase their work.',
+  //     image: '',
+  //     tags: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
+  //     link: '#',
+  //     github: '#',
+  //   },
+  //   {
+  //     id: 4,
+  //     title: 'Weather Dashboard',
+  //     description:
+  //       'A weather application that displays current conditions and forecasts based on user location.',
+  //     image: '',
+  //     tags: ['React', 'API Integration', 'Geolocation', 'Chart.js'],
+  //     link: '#',
+  //     github: '#',
+  //   },
+  // ];
 
   const skills = [
     {
@@ -194,7 +193,7 @@ export default function Home() {
               </h2>
               <p className='text-muted-foreground mb-8 text-lg'>
                 I build accessible, responsive, and high-performance web
-                applications using modern technologies. With 4+ years of
+                applications using modern technologies. With 5 years of
                 experience as a MERN stack developer, I specialize in crafting
                 scalable solutions with React, Node.js, Express, and MongoDB to
                 deliver seamless user experiences.
@@ -205,13 +204,8 @@ export default function Home() {
                     Contact Me <Mail className='ml-2 h-4 w-4' />
                   </Link>
                 </Button>
-                <Button variant='outline' size='lg' asChild>
-                  <a
-                    href='/assets/Vijay Gupta.pdf'
-                    download='Vijay_Gupta_CV.pdf'
-                  >
-                    Download CV <Download className='ml-2 h-4 w-4' />
-                  </a>
+                <Button onClick={downloadResume} variant='outline' size='lg'>
+                  Download CV <Download className='ml-2 h-4 w-4' />
                 </Button>
               </div>
               <div className='flex gap-4 mt-8'>
@@ -268,7 +262,7 @@ export default function Home() {
                 user-friendly experiences that solve real-world problems.
               </p>
               <p className='text-lg mb-4'>
-                My journey in web development began 4 years ago, and since then,
+                My journey in web development began 5 years ago, and since then,
                 I&apos;ve worked with various technologies and frameworks to
                 deliver high-quality solutions for clients across different
                 industries.
@@ -292,7 +286,7 @@ export default function Home() {
                 <div>
                   <h3 className='font-medium mb-1'>Location:</h3>
                   <p className='text-muted-foreground'>
-                    Panipat, Harayana, India
+                    Delhi, India
                   </p>
                 </div>
                 <div>
@@ -380,7 +374,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id='projects' className='py-12'>
+        {/* <section id='projects' className='py-12'>
           <div className='text-center mb-12'>
             <h2 className='text-3xl font-bold mb-4'>Featured Projects</h2>
             <div className='h-1 w-20 bg-primary mx-auto mb-6'></div>
@@ -426,13 +420,13 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
-          </div>
+          </div> 
           <div className='text-center mt-8'>
             <Button variant='outline'>
               View All Projects <ArrowRight className='ml-2 h-4 w-4' />
             </Button>
           </div>
-        </section>
+        </section> */}
 
         <section id='contact' className='py-12'>
           <div className='text-center mb-12'>
@@ -477,7 +471,7 @@ export default function Home() {
                 <div>
                   <h3 className='font-medium mb-1'>Location</h3>
                   <p className='text-muted-foreground'>
-                    Panipat, Haryana, India
+                    Delhi, India
                   </p>
                 </div>
               </div>
@@ -595,6 +589,8 @@ export default function Home() {
                       placeholder='Subject'
                       {...register('subject', {
                         required: 'Subject is required',
+                        minLength: { value: 5, message: 'Subject must be at least 5 characters long' },
+ 
                       })}
                     />
                     {errors.subject && (
@@ -614,6 +610,7 @@ export default function Home() {
                       placeholder='Your message'
                       {...register('message', {
                         required: 'Message is required',
+                        minLength: { value: 10, message: 'Message must be at least 10 characters long' },
                       })}
                     ></textarea>
                     {errors.message && (
