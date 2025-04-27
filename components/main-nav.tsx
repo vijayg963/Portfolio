@@ -9,7 +9,7 @@ export function MainNav() {
           <Link href="/" className="font-bold text-xl">
             Vijay Dev
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
+          {/* <nav className="hidden md:flex items-center gap-6">
             {[
               { name: "Blog", link: "/blog" },
               { name: "E-commerce", link: "/ecommerce" },
@@ -23,7 +23,7 @@ export function MainNav() {
                 {item.name}
               </Link>
             ))}
-          </nav>
+          </nav> */}
         </div>
         <div className="flex items-center gap-4">
           <ModeToggle />

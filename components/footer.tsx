@@ -18,9 +18,9 @@ export function Footer() {
             <ul className='space-y-2 text-sm'>
               {[
                 { name: 'Home', link: '/' },
-                { name: 'Blog', link: '/blog' },
-                { name: 'E-commerce', link: '/ecommerce' },
-                { name: 'Landing', link: '/landing' },
+                // { name: 'Blog', link: '/blog' },
+                // { name: 'E-commerce', link: '/ecommerce' },
+                // { name: 'Landing', link: '/landing' },
               ].map((item, index) => (
                 <li key={index}>
                   <Link
@@ -36,7 +36,8 @@ export function Footer() {
           <div>
             <h3 className='text-lg font-medium mb-4'>Resources</h3>
             <ul className='space-y-2 text-sm'>
-                {[
+              Cooming soon...
+                {/* {[
                 { name: 'Documentation', link: '#' },
                 { name: 'Components', link: '#' },
                 { name: 'Examples', link: '#' },
@@ -49,7 +50,7 @@ export function Footer() {
                   {item.name}
                   </Link>
                 </li>
-                ))}
+                ))} */}
             </ul>
           </div>
           <div>
